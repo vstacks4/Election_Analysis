@@ -13,10 +13,6 @@ file_to_save = os.path.join("analysis", "election_analysis.txt")
 # Initialize a total vote counter
 total_votes = 0
 
-# Candidate options and candidate votes.
-#candidate_options = []
-#candidate_votes = {}
-
 # 1: Create a county list and county votes dictionary.
 county_options = []
 county_votes = {}
@@ -26,9 +22,6 @@ county_votes = {}
 winning_county = ""
 winning_county_votes = 0
 winning_county_percentage = 0
-
-# 2: Track the largest county and county voter turnout.
-
 
 
 # Read the csv and convert it into a list of dictionaries
@@ -47,10 +40,6 @@ with open(file_to_load) as county_data:
         # 3. Get the county name from each row.
         county_name = row[1]
 
-        # 3: Extract the county name from each row.
-
-
-        # If a county does not match an existing county
         # the candidate list
         if county_name not in county_options:
             # Add the county name to the county list.
@@ -72,7 +61,6 @@ with open(file_to_load) as county_data:
         #print each county with voter count and percentage
         county_results = (
             f"{county_name}: {county_percentage:.1f}% ({votes:,})\n")
-        print(county_results)
         
         #winners
         if (votes > winning_county_votes) and (county_percentage > winning_county_percentage):
@@ -89,7 +77,7 @@ with open(file_to_load) as county_data:
             f"--------------------------------------------------\n")
 
         print(winning_county_summary)
-        
+
         # 4a: Write a decision statement that checks that the
         # county does not match any existing county in the county list.
 
