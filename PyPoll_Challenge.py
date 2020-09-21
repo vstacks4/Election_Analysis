@@ -78,6 +78,19 @@ with open(file_to_load) as county_data:
 
         print(winning_county_summary)
 
+    with open (file_to_save, "w") as txt_file:
+            election_results = (
+                f"--------------------------------------------------\n"
+                f"Winning County: {winning_county}\n"
+                f"Winning County votes: {winning_county_votes}\n"
+                f"The % of votes: {winning_county_percentage:.1f}%\n"
+                f"---------------------------------------------------\n")
+            print(election_results, end= "")
+            #save the final results to the text file
+            txt_file.write (election_results)
+
+
+
         # 4a: Write a decision statement that checks that the
         # county does not match any existing county in the county list.
 
